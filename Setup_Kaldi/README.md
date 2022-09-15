@@ -6,3 +6,14 @@ $ sudo bash setup.sh 10 # 10 is the number of cpu cores for install kaldi
 # $ y | sudo bash setup.sh 10
 # or install Manually with http://kaldi-asr.org/doc/tutorial_setup.html
 ```
+
+### known Error
+```sh
+
+# Check Dependency
+sudo ./kaldi/tools/extras/check_dependencies.sh
+
+# Add python2.7 to path
+sudo ./kaldi/tools/env.sh /usr/bin/python2.7
+sudo ln -fs /usr/bin/python2.7 ./tools/python/python2
+```
