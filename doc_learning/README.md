@@ -6,8 +6,6 @@ https://www.assemblyai.com/blog/kaldi-speech-recognition-for-beginners-a-simple-
 https://kaldi-asr.org/doc/kaldi_for_dummies.html
 ```
 
-[Kaldi Tutorial](https://github.com/hootan09/kaldiASR/doc_learning)
-
 # Overview
 **What is Kaldi?** Kaldi is a state-of-the-art automatic speech recognition (ASR) toolkit, containing almost any algorithm currently used in ASR systems. It also contains recipes for training your own acoustic models on commonly used speech corpora such as the Wall Street Journal Corpus, TIMIT, and more. These recipes can also serve as a template for training acoustic models on your own speech data.
 
