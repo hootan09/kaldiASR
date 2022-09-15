@@ -17,7 +17,6 @@ Kaldi provides tremendous flexibility and power in training your own acoustic mo
 
 Please also refer to the [Kaldi website](https://www.kaldi-asr.org/doc/) for thorough documentation.
 
-[Kaldi Tutorial](https://www.eleanorchodroff.com/tutorial/kaldi/familiarization.html)
 
 # Familiarization
 This section serves as a cursory overview of Kaldi’s directory structure. The top-level directories are `egs`, `src`, `tools`, `misc`, and `windows`. The directories we will be using are `egs` and `src`.
@@ -32,7 +31,7 @@ For each training recipe directory, there is a standard sub-directory structure.
 
 Example directory structure
 
-# Training Overview (NOt Needed To Read)
+# Training Overview (NOt needed to read)
  
 Before diving into the scripts, it is essential to understand the basic procedure for training acoustic models. Given the audience and purpose of the tutorial, this section will focus on the process as opposed to the computation (see [Jurafsky and Martin 2008](https://www.amazon.com/Speech-Language-Processing-Daniel-Jurafsky/dp/0131873210/ref=sr_1_1?s=books&ie=UTF8&qid=1435870892&sr=1-1&keywords=speech+and+language+processing&pebp=1435870888175&perid=0HS6VNBZX7NEZN1NTCX2), [Young 1996](https://ieeexplore.ieee.org/abstract/document/536824/), among many others). The procedure can be laid out as follows:
  
@@ -84,7 +83,6 @@ Speaker independent alignment, as it sounds, will exclude speaker-specific infor
 
 **fMLLR** stands for Feature Space Maximum Likelihood Linear Regression. After SAT training, the acoustic model is no longer trained on the original features, but on speaker-normalized features. For alignment, we essentially have to remove the speaker identity from the features by estimating the speaker identity (with the inverse of the fMLLR matrix), then removing it from the model (by multiplying the inverse matrix with the feature vector). These quasi-speaker-independent acoustic models can then be used in the alignment process.
 
-[Kaldi Tutorial](https://www.eleanorchodroff.com/tutorial/kaldi/training-acoustic-models.html)
 
 # Training Acoustic Models
  
@@ -478,21 +476,22 @@ The exact number of leaves and Gaussians is often decided based on heuristics. T
 >     --use-graphs true data/train data/lang exp/tri2a exp/tri2a_ali  || exit 1;
 > 
 -   **Train LDA-MLLT triphones**
-> 
->     steps/train_lda_mllt.sh --cmd "$train_cmd" \
->     3500 20000 data/train data/lang exp/tri2a_ali exp/tri3a || exit 1;
-> 
+```sh 
+     steps/train_lda_mllt.sh --cmd "$train_cmd" \
+     3500 20000 data/train data/lang exp/tri2a_ali exp/tri3a || exit 1;
+``` 
 -   **Align LDA-MLLT triphones with FMLLR**
-> 
->     steps/align_fmllr.sh --nj 32 --cmd "$train_cmd" \
->     data/train data/lang exp/tri3a exp/tri3a_ali || exit 1;
-> 
+```sh 
+     steps/align_fmllr.sh --nj 32 --cmd "$train_cmd" \
+     data/train data/lang exp/tri3a exp/tri3a_ali || exit 1;
+``` 
 -   **Train SAT triphones**
-> 
->     steps/train_sat.sh  --cmd "$train_cmd" \
->     4200 40000 data/train data/lang exp/tri3a_ali exp/tri4a || exit 1;
-> 
+```sh 
+     steps/train_sat.sh  --cmd "$train_cmd" \
+     4200 40000 data/train data/lang exp/tri3a_ali exp/tri4a || exit 1;
+``` 
 -   **Align SAT triphones with FMLLR**
-> 
->     steps/align_fmllr.sh  --cmd "$train_cmd" \
->     data/train data/lang exp/tri4a exp/tri4a_ali || exit 1;
+```sh 
+     steps/align_fmllr.sh  --cmd "$train_cmd" \
+     data/train data/lang exp/tri4a exp/tri4a_ali || exit 1;
+```
