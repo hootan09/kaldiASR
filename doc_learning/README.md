@@ -1,4 +1,4 @@
-### Reference
+### Reference:
 ```txt
 https://kaldi-asr.org
 https://www.eleanorchodroff.com/tutorial/kaldi
