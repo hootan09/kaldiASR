@@ -12,14 +12,15 @@ echo "Upgrading packages"
 yes | sudo apt update
 yes | sudo apt upgrade
 
-echo "Installing required packages"
+echo "------------Installing required packages------------"
 # yes | sudo apt install unzip git-all
-yes | sudo apt install unzip
-pkgs="wget g++ make automake autoconf sox gfortran libtool subversion python2.7 python3.8 zlib1g-dev"
-yes | sudo apt-get install $pkgs
+sudo apt install unzip
+sudo add-apt-repository ppa:deadsnakes/ppa && apt-get update
+pkgs="wget make g++ automake autoconf sox gfortran libtool subversion python2.7 python3.8 zlib1g-dev"
+sudo apt-get install $pkgs
 
-echo "Installing Kaldi"
-echo "Installing Kaldi - Tools install"
+echo "------------Installing Kaldi------------"
+echo "------------Installing Kaldi - Tools install------------"
 git clone https://github.com/kaldi-asr/kaldi.git kaldi --origin upstream
 cd ./kaldi/tools
 extras/install_mkl.sh
