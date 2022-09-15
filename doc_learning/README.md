@@ -434,15 +434,15 @@ The argument `--cmd “$train_cmd”` designates which machine should handle the
 -   **Align monophones**
 
 Just like the training scripts, the alignment scripts also adhere to the same argument structure. The required arguments are always:
-> 
->     - Location of the acoustic data: `data/train`
->     - Location of the lexicon: `data/lang`  
->     - Source directory for the model: `exp/currentmodel`  
->     - Destination directory for the alignment: `exp/currentmodel_ali`       
-> 
->     steps/align_si.sh --boost-silence 1.25 --nj 16 --cmd "$train_cmd" \
->     data/train data/lang exp/mono_10k exp/mono_ali || exit 1;
-> 
+```sh 
+     - Location of the acoustic data: `data/train`
+     - Location of the lexicon: `data/lang`  
+     - Source directory for the model: `exp/currentmodel`  
+     - Destination directory for the alignment: `exp/currentmodel_ali`       
+ 
+     steps/align_si.sh --boost-silence 1.25 --nj 16 --cmd "$train_cmd" \
+     data/train data/lang exp/mono_10k exp/mono_ali || exit 1;
+``` 
 The directory structure should now look something like this:
 
 ![Output directory structure](/doc_learning/data/directorystructure3.png)
@@ -456,25 +456,25 @@ Output directory structure
 Training the triphone model includes additional arguments for the number of leaves, or HMM states, on the decision tree and the number of Gaussians. In this command, we specify 2000 HMM states and 10000 Gaussians. As an example of what this means, assume there are 50 phonemes in our lexicon. We could have one HMM state per phoneme, but we know that phonemes will vary considerably depending on if they are at the beginning, middle or end of a word. We would therefore want _at least_ three different HMM states for each phoneme. This brings us to a minimum of 150 HMM states to model just that variation. With 2000 HMM states, the model can decide if it may be better to allocate a unique HMM state to more refined allophones of the original phone. This phoneme splitting is decided by the phonetic questions in `questions.txt` and `extra_questions.txt`. The allophones are also referred to as subphones, senones, HMM states, or leaves.
 
 The exact number of leaves and Gaussians is often decided based on heuristics. The numbers will largely depend on the amount of data, number of phonetic questions, and goal of the model. There is also the constraint that the number of Gaussians should always exceed the number of leaves. As you’ll see, these numbers increase as we refine our model with further training algorithms.
-> 
->     steps/train_deltas.sh --boost-silence 1.25 --cmd "$train_cmd" \
->     2000 10000 data/train data/lang exp/mono_ali exp/tri1 || exit 1;
-> 
+```sh 
+     steps/train_deltas.sh --boost-silence 1.25 --cmd "$train_cmd" \
+      2000 10000 data/train data/lang exp/mono_ali exp/tri1 || exit 1;
+``` 
 -   **Align delta-based triphones**
-> 
->     steps/align_si.sh --nj 24 --cmd "$train_cmd" \
->     data/train data/lang exp/tri1 exp/tri1_ali || exit 1;
-> 
+```sh 
+     steps/align_si.sh --nj 24 --cmd "$train_cmd" \
+     data/train data/lang exp/tri1 exp/tri1_ali || exit 1;
+``` 
 -   **Train delta + delta-delta triphones**
-> 
->     steps/train_deltas.sh --cmd "$train_cmd" \
->     2500 15000 data/train data/lang exp/tri1_ali exp/tri2a || exit 1;
-> 
+```sh 
+     steps/train_deltas.sh --cmd "$train_cmd" \
+     2500 15000 data/train data/lang exp/tri1_ali exp/tri2a || exit 1;
+``` 
 -   **Align delta + delta-delta triphones**
-> 
->     steps/align_si.sh  --nj 24 --cmd "$train_cmd" \
->     --use-graphs true data/train data/lang exp/tri2a exp/tri2a_ali  || exit 1;
-> 
+```sh 
+     steps/align_si.sh  --nj 24 --cmd "$train_cmd" \
+     --use-graphs true data/train data/lang exp/tri2a exp/tri2a_ali  || exit 1;
+``` 
 -   **Train LDA-MLLT triphones**
 ```sh 
      steps/train_lda_mllt.sh --cmd "$train_cmd" \
