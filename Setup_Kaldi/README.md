@@ -19,8 +19,11 @@ sudo ln -fs /usr/bin/python2.7 ./tools/python/python2
 ```
 
 ## Running:
-#### using all Platform & Languages like Go ,C# ,Node.js ,Python ...
+#### 
 ```sh
-# we can using Vosk
-# https://github.com/alphacep/vosk-api
+# we can use Vosk for all Platform & Languages like Go ,C# ,Node.js ,Python ...
+https://github.com/alphacep/vosk-api
+
+# Other
+
 ```
