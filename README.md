@@ -92,7 +92,7 @@ In the file you have to insert the utterance-id with the respective name of the 
 #### feats.scp 
 > ℹ️ If you did not use `run.pl` as a parallelization script, edit the following command.
 ```sh 
-     steps/make_mfcc.sh --nj 20 --cmd "run.pl" data/train exp/make_mfcc/train $mfccdir
+     steps/make_mfcc.sh --nj 10 --cmd "run.pl" data/train exp/make_mfcc/train $mfccdir
 ```     
  
 #### cmvn.scp
@@ -101,7 +101,7 @@ In the file you have to insert the utterance-id with the respective name of the 
 ``` 
 The files `data/train/segments`, `data/train/reco2file_and_channel` and `data/train/spk2gender` are optional, so it's up to you to choose if they are needed for your model.
  
-> ⚠️ The audio files that you are going to record or download from the internet for your dataset must have a format similar to: `RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 16000 Hz`. You can check this with the `file` command, if you are on a linux distribution. Otherwise you may have problems, for example with the command `steps/make_mfcc.sh --nj 20 --cmd "run.pl" data/train exp/make_mfcc/train $mfccdir`.
+> ⚠️ The audio files that you are going to record or download from the internet for your dataset must have a format similar to: `RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 16000 Hz`. You can check this with the `file` command, if you are on a linux distribution. Otherwise you may have problems, for example with the command `steps/make_mfcc.sh --nj 10 --cmd "run.pl" data/train exp/make_mfcc/train $mfccdir`.
  
 Once you have created all the files, you can check if everything is correct with the following commands:
 ```sh 
