@@ -13,13 +13,9 @@ https://github.com/matteo-39/vosk-build-model
 
 
 # Build model for Vosk
-
 This guide tries to explain how to create your own compatible model with [Vosk](https://alphacephei.com/vosk/), with the use of [Kaldi](https://kaldi-asr.org/).
 
-[matteo-39/vosk-build-model: How to create your own model for vosk](https://github.com/matteo-39/vosk-build-model#preparation)
-
 # Preparation
-
 If you are going to do the training with the GPU, download and install cuda before you go ahead and check compatibility between cuda and version of gcc and g++.
 
 As a first step to start creating your dataset, you need to download the Kaldi project from github with the following command:
@@ -242,7 +238,6 @@ You may have noticed that Vosk says that the `conf/model.conf` file must be crea
  Now you have your model perfectly compatible with Vosk.
  
 # Troubleshooting
- 
 -   If you get an error while doing the `make` under the `src` folder saying for example `this version of cuda supports gcc versions <= 7.0`, after installing the correct version of cuda, you will have to re-run the `make` under the `tools` folder first and then under `src`.
 -   When running `./configure` you may get an error asking you to download the MKL library. If you are on a debian based distribution, to download it you simply run `sudo apt install intel-mkl` . In the installation it will ask you to replace another library for 'BLAS and LAPACK'; I never did that. If even being on debian you don't find the package on your repositories, follow this [guide](https://www.r-bloggers.com/2018/04/18-adding-intel-mkl-easily-via-a-simple-script/).
 -   If you got this error `skipped: word WORD not in symbol state`, it means that within `data/lang/words.txt` there is not that particular word. To solve it you have to correct the file `data/local/dict/lexicon.txt`, because most likely it's not there either, and run again `cut -d ' ' -f 2- lexicon.txt | sed 's/ /\n/g' | sort -u > nonsilence_phones.txt` and `utils/prepare_lang.sh data/local/dict "<UNK>" data/local/lang data/lang`
