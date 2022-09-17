@@ -30,8 +30,6 @@ If you are NOT going to use the GPU for training, the command `./configure` must
 ```sh
      ./configure --use-cuda=no    
 ``` 
-Then you have to edit the file `cmd.sh` under `kaldi/egs/mini_librispeech/s5` (**which is the directory where you will work until the end of the guide**). Replace all `queue.pl` with `run.pl`.
- 
 > ℹ️ If you are going to use Kaldi with software such as GridEngine, Tork, slurm and so on, you can overlook this change. If you want more specific information on which parallelization script to use, see [here](https://kaldi-asr.org/doc/queue.html#parallelization_specific).
 
 Finally you have to download this project too:
@@ -46,6 +44,7 @@ and copy them to the right directory:
 ```sh 
      mv kaldiASR PATH_TO_KALDI/egs/.
 ```
+Then you have to edit the file `cmd.sh` under `kaldi/egs/kaldiASR/s5` (**which is the directory where you will work until the end of the guide**). Replace all `queue.pl` with `run.pl`.
 
 # Data Creation
 Thanks to this [guide](https://kaldi-asr.org/doc/data_prep.html), you will be able to create the `data/train` directory with its necessary training files.
