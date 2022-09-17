@@ -102,12 +102,11 @@ Directory structure to replicate
  
 In the following sections, we’ll fill these directories in. For now, let’s just create them.
 
-Enter your new directory and make soft links to the following directories in the `wsj` directory to access necessary scripts: `steps`, `utils`, and `src`. In addition to the directories, you will also need a copy of the `path.sh` script in your `mycorpus` directory. **You will likely need to edit `path.sh` to make sure the KALDI-ROOT path is correct**. Make sure that the number of double dot levels takes you from your primary Kaldi directory (KALDI-ROOT) down to your working directory. For example, there are three levels between `kaldi` and `wsj/s5`, but only two levels between `kaldi` and `mycorpus`.
+Enter your new directory and make soft links to the following directories in the `wsj` directory to access necessary scripts: `steps`, `utils`. In addition to the directories, you will also need a copy of the `path.sh` script in your `mycorpus` directory. **You will likely need to edit `path.sh` to make sure the KALDI-ROOT path is correct**. Make sure that the number of double dot levels takes you from your primary Kaldi directory (KALDI-ROOT) down to your working directory. For example, there are three levels between `kaldi` and `wsj/s5`, but only two levels between `kaldi` and `mycorpus`.
 ```sh 
      cd mycorpus
      ln -s ../wsj/s5/steps .
      ln -s ../wsj/s5/utils .
-     ln -s ../../src .
                          
      cp ../wsj/s5/path.sh .
 ``` 
@@ -153,18 +152,18 @@ The files in `data/train` contain information regarding the specifics of the aud
  
 The `text` file is essentially the utterance-by-utterance transcript of the corpus. This is a text file with the following format:
 ```sh 
- utt\_id WORD1 WORD2 WORD3 WORD4 …
+ utt_id WORD1 WORD2 WORD3 WORD4 …
  
- utt\_id = utterance ID
+ utt_id = utterance ID
 ``` 
 Example text file:
 ```sh 
- 110236\_20091006\_82330\_F\_0001 I’M WORRIED ABOUT THAT  
- 110236\_20091006\_82330\_F\_0002 AT LEAST NOW WE HAVE THE BENEFIT  
- 110236\_20091006\_82330\_F\_0003 DID YOU EVER GO ON STRIKE  
+ 110236_20091006_82330_F_0001 I’M WORRIED ABOUT THAT  
+ 110236_20091006_82330_F_0002 AT LEAST NOW WE HAVE THE BENEFIT  
+ 110236_20091006_82330_F_0003 DID YOU EVER GO ON STRIKE  
  …  
- 120958\_20100126\_97016\_M\_0285 SOMETIMES LESS IS BETTER  
- 120958\_20100126\_97016\_M\_0286 YOU MUST LOVE TO COOK
+ 120958_20100126_97016_M_0285 SOMETIMES LESS IS BETTER  
+ 120958_20100126_97016_M_0286 YOU MUST LOVE TO COOK
 ``` 
 Once you’ve created `text`, the lexicon will also need to be reduced to only the words present in the corpus. This will ensure that there are no extraneous phones that we are “training.”
 
@@ -189,29 +188,29 @@ One more modification needs to be made to the lexicon and that is adding the pse
  
 The `segments` file contains the start and end time for each utterance in an audio file. This is a text file with the following format:
 ```sh 
- utt\_id file\_id start\_time end\_time
+ utt_id file_id start_time end_time
  
- utt\_id = utterance ID  
- file\_id = file ID  
- start\_time = start time in seconds  
- end\_time = end time in seconds
+ utt_id = utterance ID  
+ file_id = file ID  
+ start_time = start time in seconds  
+ end_time = end time in seconds
 ``` 
 Example segments file:
 ```sh 
- 110236\_20091006\_82330\_F\_001 110236\_20091006\_82330\_F 0.0 3.44  
- 110236\_20091006\_82330\_F\_002 110236\_20091006\_82330\_F 4.60 8.54  
- 110236\_20091006\_82330\_F\_003 110236\_20091006\_82330\_F 9.45 12.05  
- 110236\_20091006\_82330\_F\_004 110236\_20091006\_82330\_F 13.29 16.13  
- 110236\_20091006\_82330\_F\_005 110236\_20091006\_82330\_F 17.27 20.36  
- 110236\_20091006\_82330\_F\_006 110236\_20091006\_82330\_F 22.06 25.46  
- 110236\_20091006\_82330\_F\_007 110236\_20091006\_82330\_F 25.86 27.56  
- 110236\_20091006\_82330\_F\_008 110236\_20091006\_82330\_F 28.26 31.24  
+ 110236_20091006_82330_F_001 110236_20091006_82330_F 0.0 3.44  
+ 110236_20091006_82330_F_002 110236_20091006_82330_F 4.60 8.54  
+ 110236_20091006_82330_F_003 110236_20091006_82330_F 9.45 12.05  
+ 110236_20091006_82330_F_004 110236_20091006_82330_F 13.29 16.13  
+ 110236_20091006_82330_F_005 110236_20091006_82330_F 17.27 20.36  
+ 110236_20091006_82330_F_006 110236_20091006_82330_F 22.06 25.46  
+ 110236_20091006_82330_F_007 110236_20091006_82330_F 25.86 27.56  
+ 110236_20091006_82330_F_008 110236_20091006_82330_F 28.26 31.24  
  …  
- 120958\_20100126\_97016\_M\_282 120958\_20100126\_97016\_M 915.62 919.67  
- 120958\_20100126\_97016\_M\_283 120958\_20100126\_97016\_M 920.51 922.69  
- 120958\_20100126\_97016\_M\_284 120958\_20100126\_97016\_M 922.88 924.27  
- 120958\_20100126\_97016\_M\_285 120958\_20100126\_97016\_M 925.35 927.88  
- 120958\_20100126\_97016\_M\_286 120958\_20100126\_97016\_M 928.31 930.51
+ 120958_20100126_97016_M_282 120958_20100126_97016_M 915.62 919.67  
+ 120958_20100126_97016_M_283 120958_20100126_97016_M 920.51 922.69  
+ 120958_20100126_97016_M_284 120958_20100126_97016_M 922.88 924.27  
+ 120958_20100126_97016_M_285 120958_20100126_97016_M 925.35 927.88  
+ 120958_20100126_97016_M_286 120958_20100126_97016_M 928.31 930.51
 ``` 
 ### 5.2.3 wav.scp
 
@@ -221,13 +220,13 @@ Example segments file:
 ``` 
 Example `wav.scp` file:
 ```sh 
- 110236\_20091006\_82330\_F path/110236\_20091006\_82330\_F.wav  
- 111138\_20091215\_82636\_F path/111138\_20091215\_82636\_F.wav  
- 111138\_20091217\_82636\_F path/111138\_20091217\_82636\_F.wav  
+ 110236_20091006_82330_F path/110236_20091006_82330_F.wav  
+ 111138_20091215_82636_F path/111138_20091215_82636_F.wav  
+ 111138_20091217_82636_F path/111138_20091217_82636_F.wav  
  …  
- 120947\_20100125\_59427\_F path/120947\_20100125\_59427\_F.wav  
- 120953\_20100125\_79293\_F path/120953\_20100125\_79293\_F.wav  
- 120958\_20100126\_97016\_M path/120958\_20100126\_97016\_M.wav
+ 120947_20100125_59427_F path/120947_20100125_59427_F.wav  
+ 120953_20100125_79293_F path/120953_20100125_79293_F.wav  
+ 120958_20100126_97016_M path/120958_20100126_97016_M.wav
 ``` 
 If your audio files are in a different format (sphere, mp3, flac, speex), you will have to convert them to wav format. Instead of having to convert the files manually and storing multiple copies of the data, you can let Kaldi convert the files on-the-fly. The tool `sox` will come in handy in many of these cases. As an example of sphere (suffix `.sph`) to wav, you can use the following template; make sure to change `path` to the actual path where files are located. Also, don’t forget the pipe (`|`).
 ```sh 
@@ -243,21 +242,21 @@ For an example using `sox`, this following code will convert the second channel 
 
 `utt2spk` is a text file with the following format:
 ```sh 
- utt\_id spkr
+ utt_id spkr
  
- utt\_id = utterance ID  
+ utt_id = utterance ID  
  spkr = speaker ID
 ``` 
 Example `utt2spk` file:
 ```sh 
- 110236\_20091006\_82330\_F\_0001 110236  
- 110236\_20091006\_82330\_F\_0002 110236  
- 110236\_20091006\_82330\_F\_0003 110236  
- 110236\_20091006\_82330\_F\_0004 110236  
+ 110236_20091006_82330_F_0001 110236  
+ 110236_20091006_82330_F_0002 110236  
+ 110236_20091006_82330_F_0003 110236  
+ 110236_20091006_82330_F_0004 110236  
  …  
- 120958\_20100126\_97016\_M\_0284 120958  
- 120958\_20100126\_97016\_M\_0285 120958  
- 120958\_20100126\_97016\_M\_0286 120958
+ 120958_20100126_97016_M_0284 120958  
+ 120958_20100126_97016_M_0285 120958  
+ 120958_20100126_97016_M_0286 120958
 ```
 Since the speaker ID in the first portion of our utterance IDs, we were able to use the following code to create the `utt2spk` file:
 ```sh 
@@ -273,7 +272,7 @@ Since the speaker ID in the first portion of our utterance IDs, we were able to 
 ``` 
 While `spk2utt` has already been created, you can verify that it has the following format:
 ```sh 
- spkr utt\_id1 utt\_id2 utt\_id3
+ spkr utt_id1 utt_id2 utt_id3
 ``` 
 ## 5.3 Create files for `data/local/lang`
 
