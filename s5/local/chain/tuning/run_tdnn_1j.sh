@@ -29,6 +29,7 @@ stage=0
 decode_nj=10
 train_set=train
 test_sets=test
+use_gpu=false
 gmm=tri3b
 nnet3_affix=
 
@@ -62,12 +63,19 @@ echo "$0 $@"  # Print the command line for logging
 . ./path.sh
 . ./utils/parse_options.sh
 
-if ! cuda-compiled; then
-  cat <<EOF && exit 1
+if $use_gpu; then
+  if ! cuda-compiled; then
+    cat <<EOF && exit 1
 This script is intended to be used with GPUs but you have not compiled Kaldi with CUDA
 If you want to use GPUs (and have them), go to src/, and configure and make on a machine
-where "nvcc" is installed.
+where "nvcc" is installed.  Otherwise, call this script with --use-gpu false
 EOF
+  fi
+  num_threads=1
+else
+  # Use 4 nnet jobs just like run_4d_gpu.sh so the results should be
+  # almost the same, but this may be a little bit slow.
+  num_threads=16
 fi
 
 # The iVector-extraction and feature-dumping parts are the same as the standard
@@ -228,7 +236,7 @@ if [ $stage -le 14 ]; then
     --egs.dir="$common_egs_dir" \
     --egs.opts="--frames-overlap-per-eg 0" \
     --cleanup.remove-egs=$remove_egs \
-    --use-gpu=false \
+    --use-gpu=no \
     --reporting.email="$reporting_email" \
     --feat-dir=$train_data_dir \
     --tree-dir=$tree_dir \
