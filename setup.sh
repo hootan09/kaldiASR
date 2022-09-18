@@ -17,9 +17,7 @@ git clone https://github.com/kaldi-asr/kaldi.git kaldi --origin upstream
 cd ./kaldi/tools
 # extras/install_mkl.sh
 make
-cd ../src
-./configure
-make
+
 extras/check_dependencies.sh
 
 echo "Did you receive the \`all OK.\` message? (y/n)"
@@ -32,15 +30,10 @@ fi
 echo "Installing Kaldi - Src install"
 cd ../src
 ./configure --shared
-if [ 1 == "$cores" ]; then
-	yes | make CXX=g++
-	yes | make depend CXX=g++
-else
-	yes | make CXX=g++ -j $cores
-	yes | make depend CXX=g++ -j $cores
-fi
-
+make depend -j 5
+make -j 5
 echo "Kaldi Install Complete"
+
 echo "Cloning Project Repository"
 cd ../egs
 git clone https://github.com/hootan09/kaldiASR.git
