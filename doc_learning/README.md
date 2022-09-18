@@ -5,6 +5,7 @@ https://www.eleanorchodroff.com/tutorial/kaldi
 https://www.assemblyai.com/blog/kaldi-speech-recognition-for-beginners-a-simple-tutorial/
 https://kaldi-asr.org/doc/kaldi_for_dummies.html
 https://github.com/Muradean/kaldi_toy_example
+https://github.com/matteo-39/vosk-build-model
 ```
 
 # Overview
