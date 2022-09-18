@@ -115,7 +115,7 @@ utils/fix_data_dir.sh data/train (in case of errors with the previous command)
 ```     
 
 # Lang Creation 
-To create the `data/lang` directory you only need to create one file, namely `data/local/dict/lexicon.txt`. This file consists of every single word in your utterances and its phoneme. Looking for a free program that allows to have the phoneme of a word of the Italian dictionary, but not only, I found espeak that with the command `espeak -q -v it --ipa=3 test` returns the phoneme, in this example, of the word 'test'.
+To create the `data/lang` directory you only need to create one file, namely `data/local/dict/lexicon.txt`. This file consists of every single word in your utterances and its phoneme. Looking for a free program that allows to have the phoneme of a word of the Italian dictionary, but not only, I found espeak that with the command `espeak -q -v fa --ipa=3 test` returns the phoneme, in this example, of the word 'test'.
  
 The `-q` option is for not playing any voices, `-v` indicates the language, `--ipa` displays the phoneme according to the International Phonetic Alphabet, and the `3` argument in the `--ipa` option indicates that the output of the phoneme will be broken up by underscores. This will be useful since in the file `data/local/dict/lexicon.txt` the phoneme should have a form like:
 ```sh 
@@ -129,18 +129,18 @@ When you are done with `data/local/dict/lexicon.txt`, you can start creating the
  
 ### nonsilence_phones.txt
 ```sh 
-cut -d ' ' -f 2- lexicon.txt | sed 's/ /\n/g' | sort -u > nonsilence_phones.txt
+cut -d ' ' -f 2- data/local/dict/lexicon.txt | sed 's/ /\n/g' | sort -u > data/local/dict/nonsilence_phones.txt
 ```     
 > ⚠️ After running this command check, with any text editor, if the first line of the file is not empty, otherwise you have to delete it.
  
 ### silence_phones.txt
 ```sh 
-echo -e 'SIL\noov\nSPN' > silence_phones.txt
+echo -e 'SIL\noov\nSPN' > data/local/dict/silence_phones.txt
 ```     
  
 ### optional_silence.txt
 ```sh 
-echo 'SIL' > optional_silence.txt
+echo 'SIL' > data/local/dict/optional_silence.txt
 ```      
 Once everything is created, it is important to add `<UNK> SPN` inside `data/local/dict/lexicon.txt` (by convention we insert it at the beginning of the file):
 ```sh 

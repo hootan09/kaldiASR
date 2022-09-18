@@ -1,3 +1,4 @@
 /kaldi
 /SRILM/srilm-1.7.2.tar.gz
-/s5/data/train/spk2utt
+# /s5/data/train/spk2utt
+s5/data/lang

@@ -16,6 +16,14 @@ sudo ./kaldi/tools/extras/check_dependencies.sh
 # Add python2.7 to path
 sudo ./kaldi/tools/env.sh /usr/bin/python2.7
 sudo ln -fs /usr/bin/python2.7 ./tools/python/python2
+
+#utils/prepare_lang.sh: line 547: fstaddselfloops: command not found
+#ERROR: FstHeader::Read: Bad FST header: standard input
+wget http://www.openfst.org/twiki/pub/FST/FstDownload/openfst-1.6.5.tar.gz
+tar zxvf openfst-1.6.5.tar.gz
+./configure
+make
+make install
 ```
 
 ## Running:
