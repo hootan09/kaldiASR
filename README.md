@@ -28,12 +28,6 @@ sudo ln -fs /usr/bin/python2.7 ./tools/python/python2
 https://github.com/alphacep/vosk-api
 ```
 
-## Reference: 
-```sh
-https://github.com/matteo-39/vosk-build-model
-```
-
-
 # Build model for Vosk
 This guide tries to explain how to create your own compatible model with [Vosk](https://alphacephei.com/vosk/), with the use of [Kaldi](https://kaldi-asr.org/).
 
