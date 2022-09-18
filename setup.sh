@@ -1,13 +1,5 @@
 #!/bin/sh
 
-if test -n "$1"; then
-	cores=$1
-else
-	cores=1
-fi
-echo "Using $cores core(s) for \`make\` and \`make depend\`"
-
-
 echo "Upgrading packages"
 yes | sudo apt update
 yes | sudo apt upgrade
@@ -23,7 +15,11 @@ echo "------------Installing Kaldi------------"
 echo "------------Installing Kaldi - Tools install------------"
 git clone https://github.com/kaldi-asr/kaldi.git kaldi --origin upstream
 cd ./kaldi/tools
-extras/install_mkl.sh
+# extras/install_mkl.sh
+make
+cd ../src
+./configure
+make
 extras/check_dependencies.sh
 
 echo "Did you receive the \`all OK.\` message? (y/n)"
@@ -32,13 +28,6 @@ if [ $response == "n" ]; then
 	echo "Please install all required dependencies and then continue the installation with ./kaldi/tools/INSTALL"
 	exit
 fi
-
-if [ 1 == "$cores" ]; then
-    yes | make CXX=g++
-else
-    yes | make CXX=g++ -j $cores
-fi
-
 
 echo "Installing Kaldi - Src install"
 cd ../src
@@ -52,10 +41,10 @@ else
 fi
 
 echo "Kaldi Install Complete"
-# echo "Cloning Project Repository"
-# cd ../egs
-# git clone https://github.com/AssemblyAI/kaldi-asr-tutorial.git
-# cd kaldi-asr-tutorial/s5
+echo "Cloning Project Repository"
+cd ../egs
+git clone https://github.com/hootan09/kaldiASR.git
+cd kaldiASR/s5
 
 
 

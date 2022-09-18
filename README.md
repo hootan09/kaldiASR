@@ -4,7 +4,29 @@
 
 [Kaldi Simple Learning](https://github.com/hootan09/kaldiASR/tree/main/doc_learning)
 
-[Kaldi Setup](https://github.com/hootan09/kaldiASR/tree/main/Setup_Kaldi)
+#### install Dependency with Setup shell (Ubuntu 22.04 LTS):
+```sh
+$ wget https://raw.github.com/hootan09/kaldiASR/master/setup.sh
+$ sudo bash setup.sh
+```
+
+### Known Error:
+```sh
+
+# Check Dependency
+sudo ./kaldi/tools/extras/check_dependencies.sh
+
+# Add python2.7 to path
+sudo ./kaldi/tools/env.sh /usr/bin/python2.7
+sudo ln -fs /usr/bin/python2.7 ./tools/python/python2
+```
+
+## Running Model with Vosk:
+#### 
+```sh
+# we can use Vosk for all Platform & Languages like Go ,C# ,Node.js ,Python ...
+https://github.com/alphacep/vosk-api
+```
 
 ## Reference: 
 ```sh
