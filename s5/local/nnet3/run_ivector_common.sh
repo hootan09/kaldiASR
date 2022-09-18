@@ -9,8 +9,8 @@ set -euo pipefail
 # of usage.
 
 stage=0
-train_set=train_clean_5
-test_sets="dev_clean_2"
+train_set=train
+test_sets="test"
 gmm=tri3b
 
 online_cmvn_iextractor=false

@@ -27,8 +27,8 @@ set -euo pipefail
 # (some of which are also used in this script directly).
 stage=0
 decode_nj=10
-train_set=train_clean_5
-test_sets=dev_clean_2
+train_set=train
+test_sets=test
 gmm=tri3b
 nnet3_affix=
 
@@ -228,7 +228,7 @@ if [ $stage -le 14 ]; then
     --egs.dir="$common_egs_dir" \
     --egs.opts="--frames-overlap-per-eg 0" \
     --cleanup.remove-egs=$remove_egs \
-    --use-gpu=true \
+    --use-gpu=false \
     --reporting.email="$reporting_email" \
     --feat-dir=$train_data_dir \
     --tree-dir=$tree_dir \

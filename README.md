@@ -215,11 +215,11 @@ test_sets=test
 ```     
 Still within `local/chain/tuning/run_tdnn_1j.sh`, edit:
 ```sh 
---use-gpu=yes
+--use-gpu=true
 ```      
 with:
 ```sh 
---use-gpu=wait (if you do NOT have to use the GPU replace "wait" with "no")
+--use-gpu=wait (if you do NOT have to use the GPU replace "wait" with "false")
 ```      
 and then also run:
 ```sh 
