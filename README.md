@@ -182,6 +182,13 @@ Also, to run `lm_creation.sh`, you have to install the SRILM library. To install
 ```sh 
 ./install_srilm.sh && ./env.sh
 ```     
+##### note: srilm mybe not accessible from iran todo:
+```sh
+sudo apt-get install gawk
+cp SRILM/install_srilm.sh <kali_path>/tools
+cp srilm.tar.gz <kaldi_path>/tools # download (srilm-1.7.2.tar.gz) by this link http://www.speech.sri.com/projects/srilm/download.html
+./install_srilm.sh && ./env.sh
+```
 If `env.sh` does not run, you must make it executable with the `chmod` command.
  
 Now you can create your language model with the following command:
