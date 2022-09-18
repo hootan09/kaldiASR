@@ -37,7 +37,7 @@ https://github.com/matteo-39/vosk-build-model
 # Build model for Vosk
 This guide tries to explain how to create your own compatible model with [Vosk](https://alphacephei.com/vosk/), with the use of [Kaldi](https://kaldi-asr.org/).
 
-# Preparation
+# Preparation (Not Needed already done with setup.sh)
 If you are going to do the training with the GPU, download and install cuda before you go ahead and check compatibility between cuda and version of gcc and g++.
 
 As a first step to start creating your dataset, you need to download the Kaldi project from github with the following command:
