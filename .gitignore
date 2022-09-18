@@ -2,3 +2,6 @@
 /SRILM/srilm-1.7.2.tar.gz
 # /s5/data/train/spk2utt
 s5/data/lang
+s5/data/lang_test_*
+s5/data/local/tmp
+s5/data/test
