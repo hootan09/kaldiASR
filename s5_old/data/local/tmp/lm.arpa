@@ -1,0 +1,63 @@
+
+\data\
+ngram 1=6
+ngram 2=24
+ngram 3=20
+
+\1-grams:
+-0.69897	</s>
+-99	<s>	-0.06069779
+-0.7695511	cão	0
+-0.6575773	gato	0
+-0.6777807	leão	0
+-0.69897	sapo	0
+
+\2-grams:
+-0.8846066	<s> cão
+-0.5166298	<s> gato	-0.02020335
+-0.5835766	<s> leão	-0.1303338
+-0.8846066	<s> sapo
+-0.7269987	cão </s>
+-0.50515	cão cão	-0.243038
+-0.4259687	cão gato	0.02118932
+-1.20412	cão leão
+-1.20412	cão sapo
+-0.6232493	gato </s>
+-0.7201593	gato cão	0.05799194
+-0.7201593	gato gato	-0.05435767
+-0.6232493	gato leão	0.04575747
+-0.845098	gato sapo	-0.0222764
+-0.69897	leão </s>
+-0.8239087	leão cão	-0.01772878
+-1	leão gato	-0.359022
+-0.60206	leão leão	0.04575747
+-0.5228788	leão sapo	-0.07342896
+-0.4336556	sapo </s>
+-1.278754	sapo cão
+-0.9777235	sapo gato
+-0.8016323	sapo leão
+-0.5006024	sapo sapo	-0.1014576
+
+\3-grams:
+-0.544068	cão cão </s>
+-0.3679768	cão cão cão
+-0.544068	gato cão gato
+-0.39794	leão cão gato
+-0.7403627	<s> gato gato
+-0.5642715	<s> gato leão
+-0.69897	cão gato </s>
+-0.69897	cão gato cão
+-0.544068	gato gato gato
+-0.1760913	leão gato </s>
+-0.6532125	<s> leão cão
+-0.4771213	<s> leão leão
+-0.6532125	gato leão sapo
+-0.60206	leão leão leão
+-0.60206	leão leão sapo
+-0.39794	gato sapo </s>
+-0.6532125	leão sapo leão
+-0.4771213	leão sapo sapo
+-0.30103	sapo sapo </s>
+-0.60206	sapo sapo sapo
+
+\end\

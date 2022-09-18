@@ -1,0 +1,7 @@
+!SIL !SIL SIL_S
+<UNK> <UNK> SPN_S
+<eps> <eps> SIL
+cão cão k_B 6~w~_E
+gato gato g_B a_I t_I u_E
+leão leão l_B j_I 6~w~_E
+sapo sapo s_B a_I p_I u_E
