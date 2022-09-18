@@ -44,6 +44,11 @@ and copy them to the right directory:
 ```sh 
      mv kaldiASR PATH_TO_KALDI/egs/.
 ```
+create softlink (for utils & step) if not exists:
+```sh
+sudo ln -s ../../wsj/s5/utils .
+sudo ln -s ../../wsj/s5/steps/ .
+```
 Then you have to edit the file `cmd.sh` under `kaldi/egs/kaldiASR/s5` (**which is the directory where you will work until the end of the guide**). Replace all `queue.pl` with `run.pl`.
 
 # Data Creation
