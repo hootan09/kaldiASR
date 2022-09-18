@@ -16,7 +16,7 @@ echo "------------Cloning Kaldi & Tools install------------"
 git clone https://github.com/kaldi-asr/kaldi.git kaldi --origin upstream
 cd ./kaldi/tools
 # extras/install_mkl.sh
-make
+make -j 4
 
 extras/check_dependencies.sh
 
@@ -30,8 +30,8 @@ fi
 echo "Installing Kaldi - Src install"
 cd ../src
 ./configure --shared
-make depend -j 5
-make -j 5
+make depend -j 4
+make -j 4
 echo "Kaldi Install Complete"
 
 echo "Cloning Project Repository"
