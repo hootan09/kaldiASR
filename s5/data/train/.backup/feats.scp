@@ -5,9 +5,10 @@ pedro_gato_gato_leão_gato /home/niki/Desktop/kaldiASR/kaldi/egs/kaldiASR/s5/dat
 pedro_gato_leão_cão_gato /home/niki/Desktop/kaldiASR/kaldi/egs/kaldiASR/s5/data/train/data/raw_mfcc_train.3.ark:27
 pedro_gato_leão_sapo_leão /home/niki/Desktop/kaldiASR/kaldi/egs/kaldiASR/s5/data/train/data/raw_mfcc_train.3.ark:4067
 pedro_gato_leão_sapo_sapo /home/niki/Desktop/kaldiASR/kaldi/egs/kaldiASR/s5/data/train/data/raw_mfcc_train.4.ark:27
-pedro_gato_sapo_gato_sapo /home/niki/Desktop/kaldiASR/kaldi/egs/kaldiASR/s5/data/train/data/raw_mfcc_train.5.ark:26
-pedro_leão_cão_gato_sapo /home/niki/Desktop/kaldiASR/kaldi/egs/kaldiASR/s5/data/train/data/raw_mfcc_train.6.ark:27
-pedro_leão_leão_leão_leão /home/niki/Desktop/kaldiASR/kaldi/egs/kaldiASR/s5/data/train/data/raw_mfcc_train.7.ark:30
-pedro_leão_leão_sapo_sapo /home/niki/Desktop/kaldiASR/kaldi/egs/kaldiASR/s5/data/train/data/raw_mfcc_train.8.ark:28
+pedro_gato_sapo_gato_sapo /home/niki/Desktop/kaldiASR/kaldi/egs/kaldiASR/s5/data/train/data/raw_mfcc_train.4.ark:4065
+pedro_leão_cão_gato_sapo /home/niki/Desktop/kaldiASR/kaldi/egs/kaldiASR/s5/data/train/data/raw_mfcc_train.5.ark:27
+pedro_leão_leão_leão_leão /home/niki/Desktop/kaldiASR/kaldi/egs/kaldiASR/s5/data/train/data/raw_mfcc_train.6.ark:30
+pedro_leão_leão_sapo_sapo /home/niki/Desktop/kaldiASR/kaldi/egs/kaldiASR/s5/data/train/data/raw_mfcc_train.7.ark:28
+pedro_leão_leão_sapo_sapo2 /home/niki/Desktop/kaldiASR/kaldi/egs/kaldiASR/s5/data/train/data/raw_mfcc_train.8.ark:29
 pedro_leão_sapo_leão_sapo /home/niki/Desktop/kaldiASR/kaldi/egs/kaldiASR/s5/data/train/data/raw_mfcc_train.9.ark:28
 pedro_sapo_sapo_sapo_sapo /home/niki/Desktop/kaldiASR/kaldi/egs/kaldiASR/s5/data/train/data/raw_mfcc_train.10.ark:26
