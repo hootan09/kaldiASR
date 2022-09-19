@@ -295,6 +295,7 @@ You may have noticed that Vosk says that the `conf/model.conf` file must be crea
  you can use **./clean.sh** to clear unused files in project. also with argument **cleandata** to clear data folder also
  ```sh
  ./clean.sh
+ 
  # or
  # ./clean.ch cleandata # wipe data folder
  ```
