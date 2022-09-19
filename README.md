@@ -151,12 +151,12 @@ cut -d ' ' -f 2- data/local/dict/lexicon.txt | sed 's/ /\n/g' | sort -u > data/l
  
 ### silence_phones.txt
 ```sh 
-echo -e 'SIL\noov\nSPN' > data/local/dict/silence_phones.txt
+echo -e 'SIL\noov\nSPN\n' > data/local/dict/silence_phones.txt
 ```     
  
 ### optional_silence.txt
 ```sh 
-echo 'SIL' > data/local/dict/optional_silence.txt
+echo 'SIL\n' > data/local/dict/optional_silence.txt
 ```      
 Once everything is created, it is important to add `<UNK> SPN` inside `data/local/dict/lexicon.txt` (by convention we insert it at the beginning of the file):
 ```sh 
