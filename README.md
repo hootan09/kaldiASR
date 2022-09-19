@@ -297,7 +297,6 @@ You may have noticed that Vosk says that the `conf/model.conf` file must be crea
  ./clean.sh
  
  # or
- 
  # ./clean.ch cleandata # wipe data folder
  ```
  
