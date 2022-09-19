@@ -292,7 +292,7 @@ You may have noticed that Vosk says that the `conf/model.conf` file must be crea
  Now you have your model perfectly compatible with Vosk.
  
  # Clear folders
- you can use **./clean.sh** for clearn folder.also with arg **cleandata** to clear data folder
+ you can use **./clean.sh** to clear unused files in project. also with argument **cleandata** to clear data folder also
  ```sh
  ./clean.sh
  # or
