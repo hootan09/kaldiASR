@@ -291,6 +291,14 @@ You may have noticed that Vosk says that the `conf/model.conf` file must be crea
 ```      
  Now you have your model perfectly compatible with Vosk.
  
+ # Clear folders
+ you can use **./clean.sh** for clearn folder.also with arg **cleandata** to clear data folder
+ ```sh
+ ./clean.sh
+ # or
+ # ./clean.ch cleandata # wipe data folder
+ ```
+ 
 # Troubleshooting
 -   If you get an error while doing the `make` under the `src` folder saying for example `this version of cuda supports gcc versions <= 7.0`, after installing the correct version of cuda, you will have to re-run the `make` under the `tools` folder first and then under `src`.
 -   When running `./configure` you may get an error asking you to download the MKL library. If you are on a debian based distribution, to download it you simply run `sudo apt install intel-mkl` . In the installation it will ask you to replace another library for 'BLAS and LAPACK'; I never did that. If even being on debian you don't find the package on your repositories, follow this [guide](https://www.r-bloggers.com/2018/04/18-adding-intel-mkl-easily-via-a-simple-script/).
